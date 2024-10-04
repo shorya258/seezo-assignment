@@ -18,7 +18,7 @@ const Register = () => {
     <div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <Image src={"/images/seezoLogo.svg"} alt='logo' height={20} width={20} />
+            {/* <Image src={"/images/seezoLogo.svg"} alt='logo' height={200} width={200} /> */}
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight  ">
            Create a new account
           </h2>
