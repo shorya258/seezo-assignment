@@ -14,7 +14,9 @@ module.exports = {
           customBlue: 'rgb(62, 58, 242)',
           customGrey: '#1F2937',
           assessmentBG:"#F2F4F6",
-          customHoverGrey:"#374151"
+          customHoverGrey:"#374151",
+          customYellow:"#f3c78e",
+          customDarkYellow:"#FBA918"
         },
       },
     },

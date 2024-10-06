@@ -2,25 +2,33 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import "@/lib/fontawesome";
-import React from "react";
+import { jwtDecode } from "jwt-decode";
+import React, { useEffect, useState } from "react";
+import CreateAssessmentModal from "../Components/CreateAssessmentModal";
+import LeftPanelMenu from "../Components/LeftPanelMenu";
 const Assessments = () => {
+  const[fullName, setFullName]= useState("");
+  const[showModal, toggleShowModal]= useState(false);
+  const handleModal=()=>{
+    toggleShowModal(!showModal)
+  }
+  useEffect(() => {
+    let authStorageToken = localStorage.getItem("authStorageToken");
+    const decodedData = jwtDecode(authStorageToken);
+    setFullName(decodedData.user.name)
+  }, [])
+  
   return (
-    <div className="flex flex-row w-full h-screen  ">
+    <div >
+      {showModal && <CreateAssessmentModal handleModal={handleModal} /> }
+      <div className="flex flex-row w-full h-screen  ">
+
       {/* left panel */}
-      <div className="bg-colors-customGrey w-[40%] md:w-[25%] lg:w-[15%] p-3 text-2xl flex flex-col gap-3 ">
-        <div className="hover:bg-colors-customHoverGrey ">Seezo</div>
-        <div className="hover:bg-colors-customHoverGrey ">Watch Tutorial </div>
-        <div className="hover:bg-colors-customHoverGrey ">Dashboard</div>
-        <div className="bg-colors-customHoverGrey ">Assessments</div>
-        <div className="hover:bg-colors-customHoverGrey ">Diagrams</div>
-        <div className="hover:bg-colors-customHoverGrey ">
-          Security Requirements
-        </div>
-        <div className="hover:bg-colors-customHoverGrey ">Config</div>
-      </div>
+      <LeftPanelMenu/>
       {/* right panel */}
       <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-[85%] p-3 flex flex-col gap-4 ">
         <div className="flex flex-row-reverse my-4 ">
+          {fullName}
           <FontAwesomeIcon
             icon={faCircleUser}
             className="text-colors-customGrey text-[50px] "
@@ -29,7 +37,9 @@ const Assessments = () => {
         <h1 className="font-medium text-2xl ">Assessments</h1>
         <div className="flex md:flex-row flex-col justify-between">
           <span>View all assessments and create new ones</span>
-          <button className="inline  justify-center rounded-md bg-colors-customGrey px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 self-start w-auto">
+          <button className="inline  justify-center rounded-md bg-colors-customGrey px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 self-start w-auto"
+          onClick={()=>(toggleShowModal(true))}
+          >
             + New Assessment
           </button>
         </div>
@@ -72,6 +82,7 @@ const Assessments = () => {
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     </div>
   );
