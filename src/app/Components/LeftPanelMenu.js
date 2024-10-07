@@ -2,13 +2,14 @@
 import Image from "next/image";
 import React, { useState , useEffect } from "react";
 const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
- 
+
   return (
     <div
       className={` ${
         !expandLeftPanel ? "p-3 lg:w-[10%]" : "w-[40%] md:w-[25%] lg:w-[15%] "
       } hover:w-[40%] md:w-[25%] lg:w-[70px] transition-all duration-500 ease-in-out bg-colors-customGrey p-3 text-xl flex flex-col gap-3`}
       onMouseEnter={showExpandedMenu}
+      onMouseLeave={showExpandedMenu}
     >
       <div className="hover:bg-colors-customHoverGrey text-2xl">Seezo</div>
       <div className="hover:bg-colors-customHoverGrey flex gap-5 ">
@@ -19,6 +20,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
           height={20}
           className="opacity-40"
         />
+        {console.log(expandLeftPanel, "expandLeftPanel2")}
         {expandLeftPanel && <span>Watch Tutorial</span>}
       </div>
       <div className="hover:bg-colors-customHoverGrey flex gap-2 ">

@@ -41,18 +41,13 @@ const Assessments = () => {
   const handleMenuBtnClick=()=>{
     console.log("menu btn clicked")
     toggleMenuBtnClicked(!menuBtnClicked);
-    showExpandedMenu();
+    toggleExpandLeftPanel(!expandLeftPanel)
   }
 
   const showExpandedMenu=()=>{
     console.log("show expanded menu called")
-    if(menuBtnClicked)
+    if(!menuBtnClicked)
     {
-      console.log("expand left panel true")
-      toggleExpandLeftPanel(true)
-      return;
-    }
-    else{
       toggleExpandLeftPanel(!expandLeftPanel)
     }
   }
@@ -62,17 +57,8 @@ const Assessments = () => {
     let authStorageToken = localStorage.getItem("authStorageToken");
     const decodedData = jwtDecode(authStorageToken);
     setFullName(decodedData.user.name);
-  }, []);
-
-  useEffect(() => {
     getAllAssessments();
   }, []);
-
-  useEffect(() => {
-    showExpandedMenu();
-  }, [menuBtnClicked]);
-  
-
   return (
     <div>
       {showModal && <CreateAssessmentModal handleModal={handleModal} />}
@@ -84,13 +70,13 @@ const Assessments = () => {
         />
         {/* right panel */}
         <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-screen p-3 flex flex-col gap-4 rounded-md cursor-default ">
-          <div className='flex justify-between items-center ' >
+          <div className='flex justify-between items-center cursor-pointer' >
             <Image
                 src="/images/menuIcon.svg"
                 alt="menu Icon"
                 width={35}
                 height={35}
-                onClick={()=>toggleMenuBtnClicked(!menuBtnClicked)}
+                onClick={()=>handleMenuBtnClick()}
               />
           <div className="flex flex-row-reverse my-4 ">
             {fullName}
