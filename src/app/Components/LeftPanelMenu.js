@@ -11,19 +11,28 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
       onMouseEnter={showExpandedMenu}
       onMouseLeave={showExpandedMenu}
     >
-      <div className="hover:bg-colors-customHoverGrey text-2xl">Seezo</div>
-      <div className="hover:bg-colors-customHoverGrey flex gap-5 ">
+      <div className="hover:bg-colors-customHoverGrey text-2xl flex gap-5 items-center justify-start ">
+      <Image
+          src="/images/logo.png"
+          alt="Logo"
+          width={40}
+          height={40}
+          className=""
+        />
+       {expandLeftPanel && <span>Seezo</span>}
+      </div>
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 pl-1 ">
         <Image
           src="/images/tut.svg"
           alt=" Watch Tutorial"
-          width={20}
-          height={20}
+          width={30}
+          height={30}
           className="opacity-40"
         />
         {console.log(expandLeftPanel, "expandLeftPanel2")}
         {expandLeftPanel && <span>Watch Tutorial</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex gap-2 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start  gap-2  pl-1 ">
         <Image
           src="/images/dashboard.svg"
           alt="yoga pose"
@@ -33,7 +42,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
         />
         {expandLeftPanel && <span>Dashboard</span>}
       </div>
-      <div className="bg-colors-customHoverGrey flex gap-2 ">
+      <div className="bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
         <Image
           src="/images/assessments.svg"
           alt="tut"
@@ -43,7 +52,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
         />
         {expandLeftPanel && <span>Assessments</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex gap-2 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
         <Image
           src="/images/diagrams.svg"
           alt="diagrams"
@@ -53,7 +62,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
         />{" "}
         {expandLeftPanel && <span>Diagrams</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex gap-2 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
         <Image
           src="/images/security-req.svg"
           alt="Security Requirements"
@@ -63,7 +72,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
         />
         {expandLeftPanel && <span>Security Requirements</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex gap-2 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
         <Image src="/images/config.svg" alt="Config" width={20} height={20} />
         {expandLeftPanel && <span> Config</span>}
       </div>

@@ -69,7 +69,7 @@ const Assessments = () => {
         expandLeftPanel={expandLeftPanel}
         />
         {/* right panel */}
-        <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-screen p-3 flex flex-col gap-4 rounded-md cursor-default ">
+        <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-screen p-3 flex flex-col gap-4 cursor-default ">
           <div className='flex justify-between items-center cursor-pointer' >
             <Image
                 src="/images/menuIcon.svg"

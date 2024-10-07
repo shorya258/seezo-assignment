@@ -17,7 +17,8 @@ module.exports = {
           customHoverGrey:"#374151",
           customYellow:"#f3c78e",
           customDarkYellow:"#FBA918",
-          customActiveBlue:"#2196f3"
+          customActiveBlue:"#2196f3",
+          modalHeaderColor:"#f8f9fa"
         },
       },
     },
