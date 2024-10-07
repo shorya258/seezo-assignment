@@ -70,7 +70,7 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
   }, []); 
 
   return (
-    <div className="w-full h-auto flex flex-col gap-3 items-center justify-center ">
+    <div className="w-full h-1/2 flex flex-col gap-3 items-center justify-center ">
       <label htmlFor="featureName" className="w-full text-xl">
         Feature Name: <span className="text-red-600 text-xl">*</span>{" "}
       </label>
