@@ -12,7 +12,7 @@ const CreateAssessmentModal = ({ handleModal }) => {
   return (
     <div className="text-colors-customGrey fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center">
       {/* modal dialog box */}
-      <div className="flex flex-col bg-white rounded-md justify-start items-center h-[60%] w-[50%] my-[2%] p-5">
+      <div className="flex flex-col gap-4 bg-white rounded-md justify-start items-center min-h-[60%] w-[50%] my-[2%] p-5">
         <div className="w-full flex justify-between items-center ">
           <div className="text-left text-xl">Start a New Assessment</div>
           <FontAwesomeIcon

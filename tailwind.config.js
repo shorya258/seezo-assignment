@@ -16,7 +16,8 @@ module.exports = {
           assessmentBG:"#F2F4F6",
           customHoverGrey:"#374151",
           customYellow:"#f3c78e",
-          customDarkYellow:"#FBA918"
+          customDarkYellow:"#FBA918",
+          customActiveBlue:"#2196f3"
         },
       },
     },

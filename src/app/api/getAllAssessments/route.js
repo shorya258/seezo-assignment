@@ -11,7 +11,7 @@ export async function GET() {
       return NextResponse.json({ assessmentList }, { status: 201 });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return NextResponse.json(
       { error: "Failed to get all assessments" },
       { status: 500 }

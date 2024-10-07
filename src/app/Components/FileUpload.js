@@ -41,7 +41,7 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
     const formData = new FormData();
     formData.append("featureName", fileDetails.featureName);
     formData.append("file", file);
-    console.log("submit btn clicked", fileDetails.featureName, file);
+    // console.log("submit btn clicked", fileDetails.featureName, file);
     const response = await fetch("api/uploadFile", {
       method: "POST",
       headers: {
@@ -54,7 +54,7 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
       }),
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     handleModal();
   };
 
@@ -62,15 +62,16 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
   useEffect(() => {
     let authStorageToken = localStorage.getItem("authStorageToken");
     const decodedData = jwtDecode(authStorageToken);
-    console.log(decodedData.user.name);
+    // console.log(decodedData.user.name);
     let tempDet = fileDetails;
     tempDet.creator = decodedData.user.name;
     setFileDetails(tempDet);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); 
 
   return (
-    <div className="w-full h-full flex flex-col gap-3 items-center justify-center ">
-      <label htmlFor="featureName" className="block w-full text-xl">
+    <div className="w-full h-auto flex flex-col gap-3 items-center justify-center ">
+      <label htmlFor="featureName" className="w-full text-xl">
         Feature Name: <span className="text-red-600 text-xl">*</span>{" "}
       </label>
       <input
@@ -78,12 +79,12 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
         value={fileDetails.featureName}
         required
         onChange={onChangeFileDetails}
-        className="block w-full rounded-md border-0 p-1.5   shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm lg:text-xl sm:leading-6 "
+        className=" w-full rounded-md border-0 p-1.5   shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm lg:text-xl sm:leading-6 "
       />
       <div className="w-full text-xl ">Upload Documents (PDF, JPEG, PNG): </div>
       <label
         htmlFor="file-upload"
-        className=" text-colors-customHoverGrey hover:text-colors-customHoverGrey hover:bg-gray-100 border-dotted border-2 rounded-md border-blue-700 w-full h-[70%] "
+        className=" text-colors-customHoverGrey hover:text-colors-customHoverGrey hover:bg-gray-100 border-dotted border-2 rounded-md border-blue-700 w-full min-h-[70%] "
       >
         Drag & drop files here, or browse to upload
       </label>
