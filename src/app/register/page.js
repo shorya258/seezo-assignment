@@ -12,8 +12,33 @@ const Register = () => {
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
       };
-    const onSubmit=(e)=>{
-        e.preventDefault();    }  
+      const onSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch("api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name:credentials.name,
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        });
+        const json = await response.json();
+        const statusCode = response.status;
+        if (statusCode === 201) {
+          console.log("Registered successfully!");
+          setTimeout(() => router.push("/login"), 3000);
+        } else if (statusCode === 400) {
+          console.log("User already exists! Try logging in with different account.")
+          // toast.error(json.error);
+          console.log(json.error)
+        } else {
+          // toast.error("invalid creds");
+          console.log("invalid creds")
+        }
+      };
   return (
     <div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">

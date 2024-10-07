@@ -7,15 +7,19 @@ import React, { useEffect, useState } from "react";
 import CreateAssessmentModal from "../Components/CreateAssessmentModal";
 import LeftPanelMenu from "../Components/LeftPanelMenu";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 const Assessments = () => {
   const [fullName, setFullName] = useState("");
   const [assessments, setAssessments] = useState([]);
   const [showModal, toggleShowModal] = useState(false);
+  const[menuBtnClicked, toggleMenuBtnClicked]= useState(false)
+  const[expandLeftPanel, toggleExpandLeftPanel]= useState(false)
   const router= useRouter();
   // fn to handle modal
   const handleModal = () => {
     toggleShowModal(!showModal);
   };
+
 
   // fn to call get all assessments api
   const getAllAssessments = async () => {
@@ -34,6 +38,25 @@ const Assessments = () => {
     router.push(`/result/${assessmentId}`)
   }
 
+  const handleMenuBtnClick=()=>{
+    console.log("menu btn clicked")
+    toggleMenuBtnClicked(!menuBtnClicked);
+    showExpandedMenu();
+  }
+
+  const showExpandedMenu=()=>{
+    console.log("show expanded menu called")
+    if(menuBtnClicked)
+    {
+      console.log("expand left panel true")
+      toggleExpandLeftPanel(true)
+      return;
+    }
+    else{
+      toggleExpandLeftPanel(!expandLeftPanel)
+    }
+  }
+
   // use effect to parse authtoken and get user name to display beside profile picture
   useEffect(() => {
     let authStorageToken = localStorage.getItem("authStorageToken");
@@ -45,20 +68,37 @@ const Assessments = () => {
     getAllAssessments();
   }, []);
 
+  useEffect(() => {
+    showExpandedMenu();
+  }, [menuBtnClicked]);
+  
+
   return (
     <div>
       {showModal && <CreateAssessmentModal handleModal={handleModal} />}
-      <div className="flex flex-row w-full h-screen  ">
+      <div className="flex flex-row w-screen h-screen  ">
         {/* left panel */}
-        <LeftPanelMenu />
+        <LeftPanelMenu 
+        showExpandedMenu={showExpandedMenu}
+        expandLeftPanel={expandLeftPanel}
+        />
         {/* right panel */}
-        <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-[85%] p-3 flex flex-col gap-4 rounded-md cursor-default ">
+        <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-screen p-3 flex flex-col gap-4 rounded-md cursor-default ">
+          <div className='flex justify-between items-center ' >
+            <Image
+                src="/images/menuIcon.svg"
+                alt="menu Icon"
+                width={35}
+                height={35}
+                onClick={()=>toggleMenuBtnClicked(!menuBtnClicked)}
+              />
           <div className="flex flex-row-reverse my-4 ">
             {fullName}
             <FontAwesomeIcon
               icon={faCircleUser}
-              className="text-colors-customGrey text-[50px] "
+              className="text-colors-customGrey text-[35px] mx-2 "
             />
+          </div>
           </div>
           <h1 className="font-medium text-2xl ">Assessments</h1>
           <div className="flex md:flex-row flex-col justify-between">

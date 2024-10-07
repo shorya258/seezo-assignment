@@ -5,6 +5,7 @@ export async function POST(req) {
   try {
     const body= await req.json();
     const{_id}=body;
+    console.log(_id);
     if(!_id){
         return NextResponse.json({ error: "Missing required field!" }, { status: 400 });
     }
