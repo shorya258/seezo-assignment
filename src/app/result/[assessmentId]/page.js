@@ -8,6 +8,7 @@ const AssessmentId = () => {
   const { assessmentId } = params;
   const [menuBtnClicked, toggleMenuBtnClicked] = useState(false);
   const [activeHeading, setActiveHeading] = useState("Security Summary");
+  const [currentAssessment, setCurrentAssessment] = useState(null);
   const showExpandedMenu = () => {
     toggleMenuBtnClicked(!menuBtnClicked);
   };
@@ -21,8 +22,9 @@ const AssessmentId = () => {
         _id: assessmentId,
       }),
     });
-    const json = await response.json();
-    console.log(json);
+    const responseData = await response.json();
+    setCurrentAssessment(responseData.assessmentResult);
+    console.log(responseData);
   };
   const handleSetHeading = (heading) => {
     setActiveHeading(heading);
@@ -31,6 +33,33 @@ const AssessmentId = () => {
     getAssessmentResults();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const formatDate = (dateStr) => {
+    if (dateStr === undefined) {
+      return "";
+    }
+    const date = new Date(dateStr);
+
+    // Format the date
+    const options = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+
+    const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
+      date
+    );
+    const [datePart, timePart] = formattedDate.split(", ");
+    const finalFormattedDate = `${datePart.replace(
+      ",",
+      ""
+    )} at ${timePart.toLowerCase()}`;
+
+    return finalFormattedDate;
+  };
   return (
     <div className="flex flex-row w-screen h-screen">
       <LeftPanelMenu showExpandedMenu={showExpandedMenu} />
@@ -66,7 +95,7 @@ const AssessmentId = () => {
             <div className="flex flex-col p-6 rounded-md bg-white text-sm gap-y-2">
               <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
                 <h3>Feature name:</h3>
-                <p>SAMPLE - Order Processing Flow - HLD</p>
+                <p>{currentAssessment?.featureName}</p>
               </div>
               <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
                 <h3>Risk ranking:</h3>
@@ -78,7 +107,7 @@ const AssessmentId = () => {
               </div>
               <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
                 <h3>Created at:</h3>
-                <p>8 October 2024 at 12:23 am</p>
+                <p>{formatDate(currentAssessment?.createdAt)}</p>
               </div>
             </div>
           </div>
@@ -86,19 +115,19 @@ const AssessmentId = () => {
             <h2 className="mb-6 text-xl font-semibold">Latest Scan Details</h2>
             <div className="flex flex-col p-6 rounded-md bg-white text-sm gap-y-2">
               <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
-                <h3>Feature name:</h3>
-                <p>SAMPLE - Order Processing Flow - HLD</p>
+                <h3>Resources:</h3>
+                <p>{currentAssessment?.fileName}</p>
               </div>
               <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
-                <h3>Risk ranking:</h3>
-                <p>High</p>
+                <h3>Requested at:</h3>
+                <p>8 October 2024 at 12:23 am</p>
               </div>
               <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
-                <h3>Type:</h3>
-                <p>Diagram</p>
+                <h3>Started at:</h3>
+                <p>8 October 2024 at 12:23 am</p>
               </div>
               <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
-                <h3>Created at:</h3>
+                <h3>Completed at:</h3>
                 <p>8 October 2024 at 12:23 am</p>
               </div>
             </div>
