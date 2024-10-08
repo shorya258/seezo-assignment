@@ -81,7 +81,7 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal, getAllAssessments
           className=" w-full p-1.5 rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm lg:text-xl sm:leading-6 text-sm text-colors-customGrey"
         />
       </div>
-      <div className={`w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset ${fileUploadExpand?"h-full":"h-auto"} `} onClick={()=>toggleFileUploadExpand(!fileUploadExpand)} >
+      <div className={`flex flex-col w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset ${fileUploadExpand?"h-full":"h-auto"} `} onClick={()=>toggleFileUploadExpand(!fileUploadExpand)} >
         <div className="w-full text-md p-2 border-b-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset bg-colors-customActiveBlue bg-opacity-15 flex items-center ">
           {
             fileUploadExpand?<FontAwesomeIcon icon={faSortDown} className="text-xs px-2" />:

@@ -6,7 +6,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
     <div
       className={` ${
         !expandLeftPanel ? "lg:w-[80px]" : "w-[30%] md:w-[25%] lg:w-[20%] "
-      } hover:w-[30%] hover:md:w-[25%] hover:lg:w-[20%] pl-6 transition-all duration-500 ease-in-out bg-colors-customGrey text-md flex flex-col gap-3`}
+      } hover:w-[30%] hover:md:w-[25%] hover:lg:w-[20%] pl-6 transition-all duration-50 ease-in bg-colors-customGrey text-md flex flex-col gap-3`}
       onMouseEnter={showExpandedMenu}
       onMouseLeave={showExpandedMenu}
     >
@@ -28,7 +28,6 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
           height={20}
           className="opacity-40"
         />
-        {console.log(expandLeftPanel, "expandLeftPanel2")}
         {expandLeftPanel && <span className="whitespace-nowrap leading-none">Watch Tutorial</span>}
       </div>
       <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 py-2">
