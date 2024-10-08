@@ -59,17 +59,12 @@ const Register = () => {
     const json = await response.json();
     const statusCode = response.status;
     if (statusCode === 201) {
-      console.log("Registered successfully!");
+      toast.success("Registered successfully!");
       setTimeout(() => router.push("/login"), 3000);
     } else if (statusCode === 400) {
-      console.log(
-        "User already exists! Try logging in with different account."
-      );
-      // toast.error(json.error);
-      console.log(json.error);
+      toast.error(json.error);
     } else {
-      // toast.error("invalid creds");
-      console.log("invalid creds");
+      toast.error("invalid creds");
     }
   };
   return (
@@ -77,10 +72,12 @@ const Register = () => {
       <ToastContainer />
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          {/* <Image src={"/images/seezoLogo.svg"} alt='logo' height={200} width={200} /> */}
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight  ">
-            Create a new account
-          </h2>
+          <div className="flex gap-1 justify-center items-center mt-10 text-center text-2xl font-bold leading-9 tracking-tight  ">
+            <Image src={"/images/logo.png"} alt="logo" height={40} width={40} />
+           <h2>
+           Create a new account
+           </h2>
+          </div>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

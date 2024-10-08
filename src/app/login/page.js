@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
 const Login = () => {
   const router = useRouter();
   const [credentials, setCredentials] = useState({
@@ -50,19 +51,16 @@ const Login = () => {
       }),
     });
     const json = await response.json();
-    // console.log(json.authToken)
     let authStorageToken = json.authToken;
     localStorage.setItem("authStorageToken", authStorageToken);
     const statusCode = response.status;
     if (statusCode === 201) {
-      console.log("Logged in successfully!");
+      toast.success("Logged in successfully!");
       setTimeout(() => router.push("/assessments"), 3000);
     } else if (statusCode === 400) {
-      // toast.error(json.error);
-      console.log(json.error);
+      toast.error(json.error);
     } else {
-      // toast.error("invalid creds");
-      console.log("invalid creds");
+      toast.error("invalid creds");
     }
   };
   return (
@@ -70,9 +68,12 @@ const Login = () => {
       <ToastContainer />
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight  ">
-            Log in to your account
-          </h2>
+        <div className="flex gap-1 justify-center items-center mt-10 text-center text-2xl font-bold leading-9 tracking-tight  ">
+            <Image src={"/images/logo.png"} alt="logo" height={40} width={40} />
+           <h2>
+           Log in to your account
+           </h2>
+          </div>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
