@@ -1,6 +1,6 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser, faDownload, faDownLong, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import "@/lib/fontawesome";
 import { jwtDecode } from "jwt-decode";
 import React, { useEffect, useState } from "react";
@@ -12,14 +12,13 @@ const Assessments = () => {
   const [fullName, setFullName] = useState("");
   const [assessments, setAssessments] = useState([]);
   const [showModal, toggleShowModal] = useState(false);
-  const[menuBtnClicked, toggleMenuBtnClicked]= useState(false)
-  const[expandLeftPanel, toggleExpandLeftPanel]= useState(false)
-  const router= useRouter();
+  const [menuBtnClicked, toggleMenuBtnClicked] = useState(false);
+  const [expandLeftPanel, toggleExpandLeftPanel] = useState(false);
+  const router = useRouter();
   // fn to handle modal
   const handleModal = () => {
     toggleShowModal(!showModal);
   };
-
 
   // fn to call get all assessments api
   const getAllAssessments = async () => {
@@ -33,24 +32,23 @@ const Assessments = () => {
     setAssessments(json.assessmentList);
   };
 
-  const handleAssessmentResult=(singleAssessment)=>{
-    let assessmentId=singleAssessment._id;
-    router.push(`/result/${assessmentId}`)
-  }
+  const handleAssessmentResult = (singleAssessment) => {
+    let assessmentId = singleAssessment._id;
+    router.push(`/result/${assessmentId}`);
+  };
 
-  const handleMenuBtnClick=()=>{
-    console.log("menu btn clicked")
+  const handleMenuBtnClick = () => {
+    console.log("menu btn clicked");
     toggleMenuBtnClicked(!menuBtnClicked);
-    toggleExpandLeftPanel(!expandLeftPanel)
-  }
+    toggleExpandLeftPanel(!expandLeftPanel);
+  };
 
-  const showExpandedMenu=()=>{
-    console.log("show expanded menu called")
-    if(!menuBtnClicked)
-    {
-      toggleExpandLeftPanel(!expandLeftPanel)
+  const showExpandedMenu = () => {
+    console.log("show expanded menu called");
+    if (!menuBtnClicked) {
+      toggleExpandLeftPanel(!expandLeftPanel);
     }
-  }
+  };
 
   // use effect to parse authtoken and get user name to display beside profile picture
   useEffect(() => {
@@ -64,27 +62,27 @@ const Assessments = () => {
       {showModal && <CreateAssessmentModal handleModal={handleModal} />}
       <div className="flex flex-row w-screen h-screen  ">
         {/* left panel */}
-        <LeftPanelMenu 
-        showExpandedMenu={showExpandedMenu}
-        expandLeftPanel={expandLeftPanel}
+        <LeftPanelMenu
+          showExpandedMenu={showExpandedMenu}
+          expandLeftPanel={expandLeftPanel}
         />
         {/* right panel */}
         <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-screen p-3 flex flex-col gap-4 cursor-default ">
-          <div className='flex justify-between items-center cursor-pointer' >
+          <div className="flex justify-between items-center cursor-pointer">
             <Image
-                src="/images/menuIcon.svg"
-                alt="menu Icon"
-                width={35}
-                height={35}
-                onClick={()=>handleMenuBtnClick()}
-              />
-          <div className="flex flex-row-reverse my-4 ">
-            {fullName}
-            <FontAwesomeIcon
-              icon={faCircleUser}
-              className="text-colors-customGrey text-[35px] mx-2 "
+              src="/images/menuIcon.svg"
+              alt="menu Icon"
+              width={35}
+              height={35}
+              onClick={() => handleMenuBtnClick()}
             />
-          </div>
+            <div className="flex flex-row-reverse my-4 ">
+              {fullName}
+              <FontAwesomeIcon
+                icon={faCircleUser}
+                className="text-colors-customGrey text-[35px] mx-2 "
+              />
+            </div>
           </div>
           <h1 className="font-medium text-2xl ">Assessments</h1>
           <div className="flex md:flex-row flex-col justify-between">
@@ -97,48 +95,79 @@ const Assessments = () => {
             </button>
           </div>
           {/* Assessments table */}
-          <div className="bg-white">
+          <div className="bg-white border-[1px] rounded-md">
             <table className="table-auto w-full p-3">
-              <thead>
-                <tr>
-                  <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2">
-                    Feature name{" "}
+              <thead className="bg-[#f8f9fa] text-sm text-left">
+                <tr className="font-medium">
+                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                  <img className="w-4" src="/images/sort-down.svg"></img>
                   </th>
-                  <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2 ">
-                    State
+                  <th className=" p-2 border-r-2 border-solid border-gray-600 m-2">
+                    <div className="flex justify-between">
+                      <p>Feature name</p>
+                      <img className="w-4" src="/images/sort-down.svg"></img>
+                    </div>
                   </th>
-                  <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2">
-                    Risk Ranking
+                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2 ">
+                    <div className="flex justify-between">
+                      <p>State</p>
+                      <img
+                        className="w-4 ml-auto"
+                        src="/images/sort-down.svg"
+                      ></img>
+                    </div>
                   </th>
-                  <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2">
-                    Open questions
+                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                    <div className="flex justify-between">
+                      <p>Risk Ranking</p>
+                      <img className="w-4" src="/images/sort-down.svg"></img>
+                    </div>
                   </th>
-                  <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2">
-                    Type
+                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                    <div className="flex justify-between">
+                      <p>Open questions</p>
+                      <img className="w-4" src="/images/sort-down.svg"></img>
+                    </div>
                   </th>
-                  <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2">
-                    Creator
+                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                    <div className="flex justify-between">
+                      <p>Type</p>
+                      <img className="w-4" src="/images/sort-down.svg"></img>
+                    </div>
                   </th>
-                  <th className="m-2">Created At</th>
+
+                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                    <div className="flex justify-between">
+                      <p>Creator</p>
+                      <img className="w-4" src="/images/sort-down.svg"></img>
+                    </div>
+                  </th>
+                  <th className="p-2 m-2">
+                    <div className="flex justify-start">
+                      <p>Creator</p>
+                      <FontAwesomeIcon icon={faSortDown} className="ml-4"/>
+                    </div>
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {assessments?.map((singleAssessment, key) => {
                   return (
-                    <tr key={key} className="hover:bg-colors-customActiveBlue hover:bg-opacity-20" onClick={()=>handleAssessmentResult(singleAssessment)}  >
-                      <td className="mx-2 text-center">
-                        {singleAssessment.featureName}
+                    <tr
+                      key={key}
+                      className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left border-b-[1px] border-black"
+                      onClick={() => handleAssessmentResult(singleAssessment)}
+                    >
+                      <td className="mx-2 p-2">
+                        <input type="checkbox"></input>
                       </td>
-                      <td className="mx-2 p-2 text-center">Completed</td>
-                      <td className="mx-2 p-2 text-center">0</td>
-                      <td className="mx-2 p-2 text-center">1</td>
-                      <td className="mx-2 p-2 text-center">File Upload</td>
-                      <td className="mx-2 p-2 text-center">
-                        {singleAssessment.creator}
-                      </td>
-                      <td className="mx-2 p-2 text-center">
-                        {singleAssessment.fileName}
-                      </td>
+                      <td className="mx-2">{singleAssessment.featureName}</td>
+                      <td className="mx-2 p-2">Completed</td>
+                      <td className="mx-2 p-2">0</td>
+                      <td className="mx-2 p-2">1</td>
+                      <td className="mx-2 p-2">File Upload</td>
+                      <td className="mx-2 p-2">{singleAssessment.creator}</td>
+                      <td className="mx-2 p-2">{singleAssessment.fileName}</td>
                     </tr>
                   );
                 })}
