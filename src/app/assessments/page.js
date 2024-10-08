@@ -95,46 +95,46 @@ const Assessments = () => {
             </button>
           </div>
           {/* Assessments table */}
-          <div className="bg-white border-[1px] rounded-md">
+          <div className="bg-white border-[1px] rounded-md min-h-96">
             <table className="table-auto w-full p-3">
-              <thead className="bg-[#f8f9fa] text-sm text-left">
-                <tr className="font-medium">
+              <thead className="bg-[#f8f9fa] text-sm text-left ">
+                <tr >
                   <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                   <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                   </th>
                   <th className=" p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between font-extralight">
                       <p>Feature name</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
                   <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)] ">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between font-extralight">
                       <p>State</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg" className="ml-auto" ></Image>
                     </div>
                   </th>
                   <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between font-extralight">
                       <p>Risk Ranking</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
                   <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between font-extralight">
                       <p>Open questions</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
-                  <th className="p-2 border-r-2 border-collapse border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
-                    <div className="flex justify-between">
+                  <th className="p-2 border-r-2  border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
+                    <div className="flex justify-between font-extralight">
                       <p>Type</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
 
                   <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between font-extralight">
                       <p>Creator</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
