@@ -3,6 +3,8 @@ import { faCloudArrowUp, faSortDown, faSortUp, faXmark } from "@fortawesome/free
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const FileUpload = ({ handleShowUploadFileOption, handleModal, getAllAssessments }) => {
   const [fileDetails, setFileDetails] = useState({
     featureName: "",
@@ -35,6 +37,14 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal, getAllAssessments
   // fn to handle submit btn and call upload file api
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(fileDetails.featureName===""){
+      toast.error("Enter a feature name first!");
+      return;
+    }
+    if(fileDetails.fileName===""){
+      toast.error("Select a file first!");
+      return;
+    }
     const formData = new FormData();
     formData.append("featureName", fileDetails.featureName);
     formData.append("file", file);
@@ -69,6 +79,7 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal, getAllAssessments
 
   return (
     <div className={`w-full flex flex-grow flex-col px-5 gap-5 pb-4 ${fileUploadExpand?"min-h-[70%]":"h-auto"}`}>
+      <ToastContainer/>
       <div>
         <label htmlFor="featureName" className="w-full text-md">
           Feature Name: <span className="text-red-600 text-xl">*</span>{" "}

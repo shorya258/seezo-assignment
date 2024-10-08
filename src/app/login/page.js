@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const router = useRouter();
   const [credentials, setCredentials] = useState({
@@ -12,8 +14,31 @@ const Login = () => {
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
+  // fn to validate email address
+  const validateEmail = (email) => {
+    // Regular expression for validating an email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+  // .fn to validate email and pwd
+  const validateInputs = (credentials) => {
+    if (!credentials.email && !credentials.password) {
+      toast.error("Enter the parameters first!");
+      return false;
+    } else {
+      if (!credentials.email || !validateEmail(credentials.email)) {
+        toast.error("Enter a valid email address!");
+        return false;
+      } else if (!credentials.password) {
+        toast.error("Enter a valid password!");
+        return false;
+      }
+    }
+    return true;
+  };
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!validateInputs(credentials)) return;
     const response = await fetch("api/login", {
       method: "POST",
       headers: {
@@ -34,14 +59,15 @@ const Login = () => {
       setTimeout(() => router.push("/assessments"), 3000);
     } else if (statusCode === 400) {
       // toast.error(json.error);
-      console.log(json.error)
+      console.log(json.error);
     } else {
       // toast.error("invalid creds");
-      console.log("invalid creds")
+      console.log("invalid creds");
     }
   };
   return (
     <div>
+      <ToastContainer />
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight  ">
