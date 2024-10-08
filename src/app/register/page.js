@@ -2,8 +2,9 @@
 import Image from 'next/image';
 import Link from 'next/link'
 import React, { useState } from 'react'
-
+import { useRouter } from 'next/navigation';
 const Register = () => {
+  const router= useRouter();
     const [credentials, setCredentials]= useState ({ 
         email: "",
         password: "",
