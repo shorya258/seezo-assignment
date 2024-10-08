@@ -49,6 +49,33 @@ const Assessments = () => {
       toggleExpandLeftPanel(!expandLeftPanel);
     }
   };
+  const formatDate = (dateStr) => {
+    if (dateStr === undefined) {
+      return "";
+    }
+    const date = new Date(dateStr);
+
+    // Format the date
+    const options = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+
+    const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
+      date
+    );
+    const [datePart, timePart] = formattedDate.split(", ");
+    const finalFormattedDate = `${datePart.replace(
+      ",",
+      ""
+    )} at ${timePart.toLowerCase()}`;
+
+    return finalFormattedDate;
+  };
 
   // use effect to parse authtoken and get user name to display beside profile picture
   useEffect(() => {
@@ -161,24 +188,14 @@ const Assessments = () => {
                       <td className="mx-2">{singleAssessment.featureName}</td>
                       <td className="mx-2 p-2">Completed</td>
                       <td className="mx-2 p-2">0</td>
-                      <td className="mx-2 p-2">1</td>
+                      <td className="mx-2 p-2">4</td>
                       <td className="mx-2 p-2">File Upload</td>
                       <td className="mx-2 p-2">{singleAssessment.creator}</td>
-                      <td className="mx-2 p-2">{singleAssessment.fileName}</td>
+                      <td className="mx-2 p-2">{formatDate(singleAssessment.createdAt)}</td>
                     </tr>
                   );
                 })}
-                {/* <tr>
-                  <td className="mx-2 text-center">The Sliding </td>
-                  <td className="mx-2 text-center">Completed</td>
-                  <td className="mx-2 text-center">0</td>
-                  <td className="mx-2 text-center">1</td>
-                  <td className="mx-2 text-center">File Upload</td>
-                  <td className="mx-2 text-center">Shorya Hayaran</td>
-                  <td className="mx-2 text-center">
-                    4 October 2024 at 4:30 pm
-                  </td>
-                </tr> */}
+                
               </tbody>
             </table>
           </div>
