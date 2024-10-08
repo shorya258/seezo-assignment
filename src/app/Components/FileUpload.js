@@ -1,5 +1,5 @@
 "use client";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCloudArrowUp, faSortDown, faSortUp, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
@@ -9,11 +9,8 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
     fileName: "",
     creator: "",
   });
-  // const [featureName, setFeatureName] = useState("");
   const [file, setFile] = useState("");
-  // const [fileName, setFileName] = useState("");
-  // const [creator, setCreator]
-
+  const[fileUploadExpand, toggleFileUploadExpand]= useState(true)
   // fn to remove a selected file
   const handleCancelFileUpload = () => {
     setFile("");
@@ -67,53 +64,65 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
     tempDet.creator = decodedData.user.name;
     setFileDetails(tempDet);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); 
+  }, []);
 
   return (
-    <div className="w-full h-1/2 flex flex-col gap-3 items-center justify-center ">
-      <label htmlFor="featureName" className="w-full text-xl">
-        Feature Name: <span className="text-red-600 text-xl">*</span>{" "}
-      </label>
-      <input
-        name="featureName"
-        value={fileDetails.featureName}
-        required
-        onChange={onChangeFileDetails}
-        className=" w-full rounded-md border-0 p-1.5   shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm lg:text-xl sm:leading-6 "
-      />
-      <div className="w-full text-xl ">Upload Documents (PDF, JPEG, PNG): </div>
-      <label
-        htmlFor="file-upload"
-        className=" text-colors-customHoverGrey hover:text-colors-customHoverGrey hover:bg-gray-100 border-dotted border-2 rounded-md border-blue-700 w-full min-h-[70%] "
-      >
-        Drag & drop files here, or browse to upload
-      </label>
-      <input
-        id="file-upload"
-        type="file"
-        accept="application/pdf"
-        required
-        className="hidden"
-        onChange={onChange}
-      />
-      {fileDetails.fileName !== "" && (
-        <div className="shadow-md shadow-gray-500 border-gray-500 border-2 border-solid cursor-pointer rounded-md p-2 m-2 hover:shadow-lg hover:shadow-gray-700 hover:-translate-y-1  transition-shadow duration-200 ease-out">
-          {fileDetails.fileName}
-          <FontAwesomeIcon
-            icon={faXmark}
-            className="text-red-500"
-            onClick={handleCancelFileUpload}
+    <div className={`w-full flex flex-grow flex-col px-5 gap-5 pb-4 ${fileUploadExpand?"min-h-[70%]":"h-auto"}`}>
+      <div>
+        <label htmlFor="featureName" className="w-full text-md">
+          Feature Name: <span className="text-red-600 text-xl">*</span>{" "}
+        </label>
+        <input
+          name="featureName"
+          value={fileDetails.featureName}
+          required
+          onChange={onChangeFileDetails}
+          className=" w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm lg:text-xl sm:leading-6 "
+        />
+      </div>
+      <div className={`w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset ${fileUploadExpand?"h-full":"h-auto"} `} onClick={()=>toggleFileUploadExpand(!fileUploadExpand)} >
+        <div className="w-full text-md p-2 border-b-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset bg-colors-customActiveBlue bg-opacity-15 flex items-start">
+          {
+            fileUploadExpand?<FontAwesomeIcon icon={faSortDown} className="text-xs px-2" />:
+            <FontAwesomeIcon icon={faSortUp} className="text-xs px-2" />
+          }
+        
+          File upload: </div>
+        {
+           
+          <div className={`${fileUploadExpand?"h-[70%] w-auto border-dotted border-2 rounded-xl border-gray-300 hover:border-blue-700 my-2 mx-4 flex justify-center items-center hover:bg-gray-100":"hidden"}`}>
+          <label
+            htmlFor="file-upload"
+            className=" flex flex-col text-colors-customHoverGrey"
+          >
+            <FontAwesomeIcon icon={faCloudArrowUp} className="text-gray-500 text-4xl" />
+            <span>Drag & drop files here, or browse</span>
+            <span className="text-gray-500 italic">
+              Supported file formats: PDF, JPEG, PNG
+            </span>
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            accept="application/pdf"
+            required
+            className="hidden"
+            onChange={onChange}
           />
         </div>
-      )}
-      <div className="flex justify-evenly">
-        <button
-          onClick={handleShowUploadFileOption}
-          className="flex justify-center rounded-md bg-colors-customYellow px-3 py-1.5 text-sm font-semibold leading-6 text-colors-customHoverGrey shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-colors-customDarkYellow  "
-          disabled
-        >
-          Add more context
-        </button>
+        }
+        {fileDetails.fileName !== "" && (
+          <div className="shadow-md shadow-gray-500 border-gray-500 border-2 border-solid cursor-pointer rounded-md p-2 m-2 hover:shadow-lg hover:shadow-gray-700 hover:-translate-y-1  transition-shadow duration-200 ease-out">
+            {fileDetails.fileName}
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="text-red-500"
+              onClick={handleCancelFileUpload}
+            />
+          </div>
+        )}
+      </div>
+      <div className="flex justify-between">
         <button
           onClick={handleShowUploadFileOption}
           className="flex justify-center rounded-md bg-colors-customDarkYellow px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-colors-customDarkYellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-colors-customDarkYellow"

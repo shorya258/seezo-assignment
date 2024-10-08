@@ -19,7 +19,7 @@ const UploadOptions = ({ handleShowUploadFileOption }) => {
     toast.success("Request sent!");
   };
   return (
-    <div className="w-full min-h-[70%] flex flex-col px-5 ">
+    <div className="w-full min-h-[70%] flex flex-col flex-grow px-5 pb-4 ">
       <ToastContainer />
       <div className="w-full text-left font-semibold text-colors-customHoverGrey">
         Select Assessment Resources:
