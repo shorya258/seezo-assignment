@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCross, faXmark } from "@fortawesome/free-solid-svg-icons";
 import FileUpload from "./FileUpload";
 import UploadOptions from "./UploadOptions";
-const CreateAssessmentModal = ({ handleModal }) => {
+const CreateAssessmentModal = ({ handleModal, getAllAssessments }) => {
   const [uploadBtnClicked, setUploadBtnClicked] = useState(false);
   const handleShowUploadFileOption = () => {
     setUploadBtnClicked(!uploadBtnClicked);
@@ -33,6 +33,7 @@ const CreateAssessmentModal = ({ handleModal }) => {
           <FileUpload
             handleShowUploadFileOption={handleShowUploadFileOption}
             handleModal={handleModal}
+            getAllAssessments={getAllAssessments}
           />
         ) : (
           <UploadOptions

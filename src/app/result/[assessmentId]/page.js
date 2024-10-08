@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import LeftPanelMenu from "@/app/Components/LeftPanelMenu";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 const AssessmentId = () => {
   const params = useParams();
   const { assessmentId } = params;
@@ -94,10 +96,11 @@ const AssessmentId = () => {
             </p>
           </div>
           <div className="flex gap-x-2">
-            <button className="flex justify-center rounded-md bg-colors-customDarkYellow px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-colors-customDarkYellow">
+            <button className="flex justify-center items-center gap-1 rounded-md bg-colors-customYellow px-4 py-2.5 text-md  leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-colors-customDarkYellow text-colors-customGrey transform transition-transform duration-300 hover:-translate-x-0.3 hover:-translate-y-1">
               Rescan
+              <FontAwesomeIcon icon={faRotateRight} className="item" />
             </button>
-            <button className="flex justify-center rounded-md bg-colors-customGrey px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-colors-customDarkYellow">
+            <button className="flex justify-center rounded-md bg-colors-customGrey px-4 py-2.5 text-md leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-colors-customGrey transform transition-transform duration-300 hover:-translate-x-0.3 hover:-translate-y-1">
               Export
             </button>
           </div>
@@ -236,19 +239,6 @@ const AssessmentId = () => {
                     </td>
                     <td className="mx-2 ">Cloud Services</td>
                     <td className="mx-2 p-2">
-                      How are the S3 bucket policies configured to ensure that
-                      unauthorized access to sensitive data stored in AWS S3 is
-                      prevented, given that the document does not mention any
-                      specific configurations like 'bucket policy,' 'S3 policy,'
-                      or 'access control'?
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
-                    <td className="px-4">
-                      <input type="checkbox"></input>
-                    </td>
-                    <td className="mx-2 ">Cloud Services</td>
-                    <td className="mx-2 p-2">
                       Does the application implement deletion protection
                       mechanisms for the AWS RDS (MySQL) databases to prevent
                       accidental or malicious deletion, as this is not mentioned
@@ -291,19 +281,6 @@ const AssessmentId = () => {
                       during the checkout process, including specific data
                       retention periods and deletion methods, as this is not
                       referenced in the document?
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
-                    <td className="px-4">
-                      <input type="checkbox"></input>
-                    </td>
-                    <td className="mx-2 ">Sensitive Data Handling</td>
-                    <td className="mx-2 p-2">
-                      How does the application ensure the protection of
-                      sensitive data such as 'Credit card number' and 'Name'
-                      during the checkout process, given that the document does
-                      not reference input masking techniques to prevent visual
-                      exposure?{" "}
                     </td>
                   </tr>
                 </tbody>

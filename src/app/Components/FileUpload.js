@@ -3,7 +3,7 @@ import { faCloudArrowUp, faSortDown, faSortUp, faXmark } from "@fortawesome/free
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
+const FileUpload = ({ handleShowUploadFileOption, handleModal, getAllAssessments }) => {
   const [fileDetails, setFileDetails] = useState({
     featureName: "",
     fileName: "",
@@ -53,6 +53,7 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
     const json = await response.json();
     // console.log(json);
     handleModal();
+    getAllAssessments();
   };
 
   // useEffect to parse authtoken to store creator name and update file details
@@ -77,11 +78,11 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
           value={fileDetails.featureName}
           required
           onChange={onChangeFileDetails}
-          className=" w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm lg:text-xl sm:leading-6 "
+          className=" w-full p-1.5 rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm lg:text-xl sm:leading-6 text-sm text-colors-customGrey"
         />
       </div>
       <div className={`w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset ${fileUploadExpand?"h-full":"h-auto"} `} onClick={()=>toggleFileUploadExpand(!fileUploadExpand)} >
-        <div className="w-full text-md p-2 border-b-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset bg-colors-customActiveBlue bg-opacity-15 flex items-start">
+        <div className="w-full text-md p-2 border-b-0 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset bg-colors-customActiveBlue bg-opacity-15 flex items-center ">
           {
             fileUploadExpand?<FontAwesomeIcon icon={faSortDown} className="text-xs px-2" />:
             <FontAwesomeIcon icon={faSortUp} className="text-xs px-2" />
@@ -112,7 +113,7 @@ const FileUpload = ({ handleShowUploadFileOption, handleModal }) => {
         </div>
         }
         {fileDetails.fileName !== "" && (
-          <div className="shadow-md shadow-gray-500 border-gray-500 border-2 border-solid cursor-pointer rounded-md p-2 m-2 hover:shadow-lg hover:shadow-gray-700 hover:-translate-y-1  transition-shadow duration-200 ease-out">
+          <div className="self-start bg-white shadow-md shadow-gray-500 border-gray-500 border-2 border-solid cursor-pointer rounded-md p-2 m-2 hover:shadow-lg hover:shadow-gray-700 transform transition-transform duration-300 hover:-translate-x-0.3 hover:-translate-y-1">
             {fileDetails.fileName}
             <FontAwesomeIcon
               icon={faXmark}

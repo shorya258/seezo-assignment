@@ -59,7 +59,7 @@ const Assessments = () => {
   }, []);
   return (
     <div>
-      {showModal && <CreateAssessmentModal handleModal={handleModal} />}
+      {showModal && <CreateAssessmentModal handleModal={handleModal} getAllAssessments={getAllAssessments}/>}
       <div className="flex flex-row w-screen h-screen  ">
         {/* left panel */}
         <LeftPanelMenu
