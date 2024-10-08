@@ -2,12 +2,11 @@
 import Image from "next/image";
 import React, { useState , useEffect } from "react";
 const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
-
   return (
     <div
       className={` ${
-        !expandLeftPanel ? "lg:w-[60px]" : "w-[40%] md:w-[25%] lg:w-[15%] "
-      } hover:w-[40%] md:w-[25%] lg:w-[70px] p-4 transition-all duration-500 ease-in-out bg-colors-customGrey text-xl flex flex-col gap-3`}
+        !expandLeftPanel ? "lg:w-[60px]" : "w-[30%] md:w-[25%] lg:w-[15%] "
+      } hover:w-[300px] md:w-[25%] p-4 transition-all duration-500 ease-in-out bg-colors-customGrey text-md flex flex-col gap-3`}
       onMouseEnter={showExpandedMenu}
       onMouseLeave={showExpandedMenu}
     >

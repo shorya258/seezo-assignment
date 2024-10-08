@@ -99,41 +99,41 @@ const Assessments = () => {
             <table className="table-auto w-full p-3">
               <thead className="bg-[#f8f9fa] text-sm text-left">
                 <tr className="font-medium">
-                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                  <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                   <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                   </th>
-                  <th className=" p-2 border-r-2 border-solid border-gray-600 m-2">
+                  <th className=" p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <div className="flex justify-between">
                       <p>Feature name</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
-                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2 ">
+                  <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)] ">
                     <div className="flex justify-between">
                       <p>State</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg" className="ml-auto" ></Image>
                     </div>
                   </th>
-                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                  <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <div className="flex justify-between">
                       <p>Risk Ranking</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
-                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                  <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <div className="flex justify-between">
                       <p>Open questions</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
-                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                  <th className="p-2 border-r-2 border-collapse border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <div className="flex justify-between">
                       <p>Type</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
 
-                  <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
+                  <th className="p-2 border-r-2 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <div className="flex justify-between">
                       <p>Creator</p>
                       <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
@@ -152,7 +152,7 @@ const Assessments = () => {
                   return (
                     <tr
                       key={key}
-                      className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left border-b-[1px] border-black"
+                      className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]"
                       onClick={() => handleAssessmentResult(singleAssessment)}
                     >
                       <td className="mx-2 p-2">

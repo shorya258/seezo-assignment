@@ -106,19 +106,19 @@ const AssessmentId = () => {
           <div className="flex-grow">
             <h2 className="mb-6 text-xl font-semibold">Assessment Metadata</h2>
             <div className="flex flex-col p-6 rounded-md bg-white text-sm gap-y-2">
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Feature name:</h3>
                 <p>{currentAssessment?.featureName}</p>
               </div>
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Risk ranking:</h3>
                 <p>High</p>
               </div>
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Type:</h3>
                 <p>Diagram</p>
               </div>
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Created at:</h3>
                 <p>{formatDate(currentAssessment?.createdAt)}</p>
               </div>
@@ -127,26 +127,26 @@ const AssessmentId = () => {
           <div className="flex-grow">
             <h2 className="mb-6 text-xl font-semibold">Latest Scan Details</h2>
             <div className="flex flex-col p-6 rounded-md bg-white text-sm gap-y-2">
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Resources:</h3>
                 <p>{currentAssessment?.fileName}</p>
               </div>
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Requested at:</h3>
                 <p>8 October 2024 at 12:23 am</p>
               </div>
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Started at:</h3>
                 <p>8 October 2024 at 12:23 am</p>
               </div>
-              <div className="flex border-b-[1px] border-black pb-6 gap-x-2">
+              <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)] pb-6 gap-x-2">
                 <h3>Completed at:</h3>
                 <p>8 October 2024 at 12:23 am</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex border-b-[1px] border-black">
+        <div className="flex border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
           <div
             className={
               "p-3 rounded-t-md cursor-pointer " +
@@ -218,19 +218,19 @@ const AssessmentId = () => {
               <table className="table-auto w-full">
                 <thead className="text-sm text-left bg-[#f8f9fa]">
                   <tr className=" py-2">
-                    <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2 px-4">
+                    <th className="font-medium p-2 border-r-4 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)] px-4">
                       <input type="checkbox"></input>
                     </th>
-                    <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2">
+                    <th className="font-medium p-2 border-r-4 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                       Type
                     </th>
-                    <th className="font-medium p-2 border-r-4 border-solid border-gray-600 m-2 text-left ">
+                    <th className="font-medium p-2 border-r-4 border-solid border-[color-mix(in srgb, transparent, #181d1f 15%)] text-left ">
                       Questions
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-black">
+                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <td className="px-4">
                       <input type="checkbox"></input>
                     </td>
@@ -243,7 +243,7 @@ const AssessmentId = () => {
                       or 'access control'?
                     </td>
                   </tr>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-black">
+                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <td className="px-4">
                       <input type="checkbox"></input>
                     </td>
@@ -255,7 +255,7 @@ const AssessmentId = () => {
                       in the document?
                     </td>
                   </tr>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-black">
+                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <td className="px-4">
                       <input type="checkbox"></input>
                     </td>
@@ -268,7 +268,7 @@ const AssessmentId = () => {
                       encrypted data?
                     </td>
                   </tr>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-black">
+                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <td className="px-4">
                       <input type="checkbox"></input>
                     </td>
@@ -280,7 +280,7 @@ const AssessmentId = () => {
                       Relationships' sections?
                     </td>
                   </tr>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-black">
+                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <td className="px-4">
                       <input type="checkbox"></input>
                     </td>
@@ -293,7 +293,7 @@ const AssessmentId = () => {
                       referenced in the document?
                     </td>
                   </tr>
-                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-black">
+                  <tr className="hover:bg-colors-customActiveBlue hover:bg-opacity-20 text-left text-sm border-b-[1px] border-[color-mix(in srgb, transparent, #181d1f 15%)]">
                     <td className="px-4">
                       <input type="checkbox"></input>
                     </td>
