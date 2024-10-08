@@ -6,8 +6,8 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
   return (
     <div
       className={` ${
-        !expandLeftPanel ? "p-3 lg:w-[10%]" : "w-[40%] md:w-[25%] lg:w-[15%] "
-      } hover:w-[40%] md:w-[25%] lg:w-[70px] transition-all duration-500 ease-in-out bg-colors-customGrey p-3 text-xl flex flex-col gap-3`}
+        !expandLeftPanel ? "lg:w-[60px]" : "w-[40%] md:w-[25%] lg:w-[15%] "
+      } hover:w-[40%] md:w-[25%] lg:w-[70px] p-4 transition-all duration-500 ease-in-out bg-colors-customGrey text-xl flex flex-col gap-3`}
       onMouseEnter={showExpandedMenu}
       onMouseLeave={showExpandedMenu}
     >
@@ -15,24 +15,24 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
       <Image
           src="/images/logo.png"
           alt="Logo"
-          width={40}
-          height={40}
+          width={35}
+          height={35}
           className=""
         />
        {expandLeftPanel && <span>Seezo</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 pl-1 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2">
         <Image
           src="/images/tut.svg"
           alt=" Watch Tutorial"
-          width={30}
-          height={30}
+          width={20}
+          height={20}
           className="opacity-40"
         />
         {console.log(expandLeftPanel, "expandLeftPanel2")}
-        {expandLeftPanel && <span>Watch Tutorial</span>}
+        {expandLeftPanel && <span className="whitespace-nowrap">Watch Tutorial</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start  gap-2  pl-1 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start  gap-2">
         <Image
           src="/images/dashboard.svg"
           alt="yoga pose"
@@ -42,7 +42,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
         />
         {expandLeftPanel && <span>Dashboard</span>}
       </div>
-      <div className="bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
+      <div className="bg-colors-customHoverGrey flex items-center justify-start gap-2">
         <Image
           src="/images/assessments.svg"
           alt="tut"
@@ -52,7 +52,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
         />
         {expandLeftPanel && <span>Assessments</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2">
         <Image
           src="/images/diagrams.svg"
           alt="diagrams"
@@ -62,7 +62,7 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
         />{" "}
         {expandLeftPanel && <span>Diagrams</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2">
         <Image
           src="/images/security-req.svg"
           alt="Security Requirements"
@@ -70,9 +70,9 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
           height={20}
           className="opacity-40"
         />
-        {expandLeftPanel && <span>Security Requirements</span>}
+        {expandLeftPanel && <span className="whitespace-nowrap">Security Requirements</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2  pl-1 ">
+      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2">
         <Image src="/images/config.svg" alt="Config" width={20} height={20} />
         {expandLeftPanel && <span> Config</span>}
       </div>

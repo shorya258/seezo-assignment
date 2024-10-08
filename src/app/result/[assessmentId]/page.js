@@ -9,8 +9,17 @@ const AssessmentId = () => {
   const [menuBtnClicked, toggleMenuBtnClicked] = useState(false);
   const [activeHeading, setActiveHeading] = useState("Security Summary");
   const [currentAssessment, setCurrentAssessment] = useState(null);
+  const [expandLeftPanel, toggleExpandLeftPanel] = useState(false);
   const showExpandedMenu = () => {
+    console.log("show expanded menu called");
+    if (!menuBtnClicked) {
+      toggleExpandLeftPanel(!expandLeftPanel);
+    }
+  };
+  const handleMenuBtnClick = () => {
+    console.log("menu btn clicked");
     toggleMenuBtnClicked(!menuBtnClicked);
+    toggleExpandLeftPanel(!expandLeftPanel);
   };
   const getAssessmentResults = async () => {
     const response = await fetch("/api/getAssessmentResults", {
@@ -29,6 +38,7 @@ const AssessmentId = () => {
   const handleSetHeading = (heading) => {
     setActiveHeading(heading);
   };
+
   useEffect(() => {
     getAssessmentResults();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -62,7 +72,10 @@ const AssessmentId = () => {
   };
   return (
     <div className="flex flex-row w-screen h-screen">
-      <LeftPanelMenu showExpandedMenu={showExpandedMenu} />
+      <LeftPanelMenu
+        showExpandedMenu={showExpandedMenu}
+        expandLeftPanel={expandLeftPanel}
+      />
       <div className="bg-colors-assessmentBG text-colors-customGrey  w-[60%] md:w-[75%] lg:w-screen p-3 flex flex-col gap-4 rounded-md cursor-default ">
         <div className="flex justify-between items-center cursor-pointer">
           <Image
