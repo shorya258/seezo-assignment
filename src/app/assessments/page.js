@@ -100,46 +100,43 @@ const Assessments = () => {
               <thead className="bg-[#f8f9fa] text-sm text-left">
                 <tr className="font-medium">
                   <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
-                  <img className="w-4" src="/images/sort-down.svg"></img>
+                  <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                   </th>
                   <th className=" p-2 border-r-2 border-solid border-gray-600 m-2">
                     <div className="flex justify-between">
                       <p>Feature name</p>
-                      <img className="w-4" src="/images/sort-down.svg"></img>
+                      <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
                   <th className="p-2 border-r-2 border-solid border-gray-600 m-2 ">
                     <div className="flex justify-between">
                       <p>State</p>
-                      <img
-                        className="w-4 ml-auto"
-                        src="/images/sort-down.svg"
-                      ></img>
+                      <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg" className="ml-auto" ></Image>
                     </div>
                   </th>
                   <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
                     <div className="flex justify-between">
                       <p>Risk Ranking</p>
-                      <img className="w-4" src="/images/sort-down.svg"></img>
+                      <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
                   <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
                     <div className="flex justify-between">
                       <p>Open questions</p>
-                      <img className="w-4" src="/images/sort-down.svg"></img>
+                      <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
                   <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
                     <div className="flex justify-between">
                       <p>Type</p>
-                      <img className="w-4" src="/images/sort-down.svg"></img>
+                      <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
 
                   <th className="p-2 border-r-2 border-solid border-gray-600 m-2">
                     <div className="flex justify-between">
                       <p>Creator</p>
-                      <img className="w-4" src="/images/sort-down.svg"></img>
+                      <Image alt="sort down" width={20} height={20} src="/images/sort-down.svg"></Image>
                     </div>
                   </th>
                   <th className="p-2 m-2">
