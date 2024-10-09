@@ -40,6 +40,7 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!validateInputs(credentials)) return;
+    console.log("entered in submit")
     const response = await fetch("api/login", {
       method: "POST",
       headers: {
@@ -51,9 +52,11 @@ const Login = () => {
       }),
     });
     const json = await response.json();
+    console.log(json)
     let authStorageToken = json.authToken;
     localStorage.setItem("authStorageToken", authStorageToken);
     const statusCode = response.status;
+    console.log("statusCode", statusCode)
     if (statusCode === 201) {
       toast.success("Logged in successfully!");
       setTimeout(() => router.push("/assessments"), 3000);
