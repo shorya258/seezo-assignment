@@ -109,9 +109,10 @@ const Login = () => {
                   Password
                 </label>
                 <div className="text-sm">
+                  
                   <button
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    //   onClick={handleForgotPassword}
+                    onClick={()=>(toast.error("this feature is not available"))}
                   >
                     Forgot password?
                   </button>

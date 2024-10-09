@@ -135,12 +135,12 @@ const Register = () => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <button
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
+                    onClick={()=>(toast.error("this feature is not available"))}
                   >
                     Forgot password?
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className="mt-2">
