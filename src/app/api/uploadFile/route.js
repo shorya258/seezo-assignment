@@ -12,9 +12,9 @@ export async function POST(req) {
       }
     // Establish MongoDB connection
     await connectToDatabase();
-    // const { originalname, path: filePath, mimetype } = req.file; // Extract file details
-    console.log("Uploaded file:", featureName);
-    console.log("Feature Name:", fileName);
+    // // const { originalname, path: filePath, mimetype } = req.file; // Extract file details
+    // console.log("Uploaded file:", featureName);
+    // console.log("Feature Name:", fileName);
 
     // Create a new file document in MongoDB
     const newFile = new File({
@@ -30,7 +30,6 @@ export async function POST(req) {
       { message: "File uploaded successfully" }, { status: 200 }
     );
   }  catch (error) {
-    console.log(error)
     return NextResponse.json(
       { error: "Failed to register user" }, {status: 500 }
     );

@@ -7,7 +7,6 @@ export async function POST(req) {
   try {
     const body = await req.json();
     const { email, password } = body;
-    console.log(email,"yoooo",password)
     if (!email || !password) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -42,7 +41,6 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
-    console.log(error)
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

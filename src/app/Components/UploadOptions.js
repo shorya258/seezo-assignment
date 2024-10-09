@@ -12,7 +12,6 @@ import {
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import Tooltip from "./Tooltip";
 import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 const UploadOptions = ({ handleShowUploadFileOption }) => {
   const [fileUploadClicked, toggleFileUploadClicked] = useState(false);
   const handleGearBtnClicked = () => {

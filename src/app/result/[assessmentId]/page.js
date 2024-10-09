@@ -13,13 +13,11 @@ const AssessmentId = () => {
   const [currentAssessment, setCurrentAssessment] = useState(null);
   const [expandLeftPanel, toggleExpandLeftPanel] = useState(false);
   const showExpandedMenu = () => {
-    console.log("show expanded menu called");
     if (!menuBtnClicked) {
       toggleExpandLeftPanel(!expandLeftPanel);
     }
   };
   const handleMenuBtnClick = () => {
-    console.log("menu btn clicked");
     toggleMenuBtnClicked(!menuBtnClicked);
     toggleExpandLeftPanel(!expandLeftPanel);
   };
@@ -35,7 +33,6 @@ const AssessmentId = () => {
     });
     const responseData = await response.json();
     setCurrentAssessment(responseData.assessmentResult);
-    console.log(responseData);
   };
   const handleSetHeading = (heading) => {
     setActiveHeading(heading);

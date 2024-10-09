@@ -38,13 +38,11 @@ const Assessments = () => {
   };
 
   const handleMenuBtnClick = () => {
-    console.log("menu btn clicked");
     toggleMenuBtnClicked(!menuBtnClicked);
     toggleExpandLeftPanel(!expandLeftPanel);
   };
 
   const showExpandedMenu = () => {
-    console.log("show expanded menu called");
     if (!menuBtnClicked) {
       toggleExpandLeftPanel(!expandLeftPanel);
     }
