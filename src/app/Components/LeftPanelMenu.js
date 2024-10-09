@@ -1,7 +1,16 @@
 "use client";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import React, { useState , useEffect } from "react";
-const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
+import React, { useState, useEffect } from "react";
+import Label from "./Label";
+import { useRouter } from "next/navigation";
+const LeftPanelMenu = ({ showExpandedMenu, expandLeftPanel }) => {
+  const router= useRouter();
+ const handleLogout=()=>{
+  localStorage.removeItem("authStorageToken");
+  router.push("/login")
+ }
   return (
     <div
       className={` ${
@@ -11,68 +20,57 @@ const LeftPanelMenu = ({ showExpandedMenu,expandLeftPanel }) => {
       onMouseLeave={showExpandedMenu}
     >
       <div className="hover:bg-colors-customHoverGrey text-xl flex gap-5 items-center justify-start mt-4 ">
-      <Image
+        <Image
           src="/images/logo.png"
           alt="Logo"
           width={35}
           height={35}
           className=""
         />
-       {expandLeftPanel && <span className="leading-none">Seezo</span>}
+        {expandLeftPanel && <span className="leading-none">Seezo</span>}
       </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 py-2">
-        <Image
-          src="/images/tut.svg"
-          alt=" Watch Tutorial"
-          width={20}
-          height={20}
-          className="opacity-40"
+      <Label
+        imgSrc="/images/tut.svg"
+        altTxt=" Watch Tutorial"
+        labelTitle="Watch Tutorial"
+        expandLeftPanel={expandLeftPanel}
+      />
+      <Label
+        imgSrc="/images/dashboard.svg"
+        altTxt=" dashboard"
+        labelTitle="Dashboard"
+        expandLeftPanel={expandLeftPanel}
+      />
+      <Label
+        imgSrc="/images/assessments.svg"
+        altTxt=" assessments"
+        labelTitle="Assessments"
+        expandLeftPanel={expandLeftPanel}
+      />
+      <Label
+        imgSrc="/images/diagrams.svg"
+        altTxt=" diagrams"
+        labelTitle="Diagrams"
+        expandLeftPanel={expandLeftPanel}
+      />
+      <Label
+        imgSrc="/images/security-req.svg"
+        altTxt=" Security requirements"
+        labelTitle="Security requirements"
+        expandLeftPanel={expandLeftPanel}
+      />
+      <Label
+        imgSrc="/images/config.svg"
+        altTxt=" config"
+        labelTitle="Diagrams"
+        expandLeftPanel={expandLeftPanel}
+      />
+      <div className="flex items-center justify-start gap-2 px-2 py-4">
+        <FontAwesomeIcon
+          icon={faArrowRightFromBracket}
+          className="text-red-600 text-sm"
+          onClick={handleLogout}
         />
-        {expandLeftPanel && <span className="whitespace-nowrap leading-none">Watch Tutorial</span>}
-      </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 py-2">
-        <Image
-          src="/images/dashboard.svg"
-          alt="yoga pose"
-          width={20}
-          height={20}
-          className="opacity-40"
-        />
-        {expandLeftPanel && <span className="leading-none">Dashboard</span>}
-      </div>
-      <div className="bg-colors-customHoverGrey flex items-center justify-start gap-2 py-2">
-        <Image
-          src="/images/assessments.svg"
-          alt="tut"
-          width={20}
-          height={20}
-          className="opacity-40"
-        />
-        {expandLeftPanel && <span className="leading-none">Assessments</span>}
-      </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 py-2">
-        <Image
-          src="/images/diagrams.svg"
-          alt="diagrams"
-          width={20}
-          height={20}
-          className="opacity-40"
-        />{" "}
-        {expandLeftPanel && <span className="leading-none">Diagrams</span>}
-      </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 py-2">
-        <Image
-          src="/images/security-req.svg"
-          alt="Security Requirements"
-          width={20}
-          height={20}
-          className="opacity-40"
-        />
-        {expandLeftPanel && <span className="whitespace-nowrap leading-none">Security Requirements</span>}
-      </div>
-      <div className="hover:bg-colors-customHoverGrey flex items-center justify-start gap-2 py-2">
-        <Image src="/images/config.svg" alt="Config" width={20} height={20} />
-        {expandLeftPanel && <span className="leading-none"> Config</span>}
       </div>
     </div>
   );
