@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const router = useRouter();
   const [credentials, setCredentials] = useState({

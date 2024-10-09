@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 const Login = () => {
   const router = useRouter();

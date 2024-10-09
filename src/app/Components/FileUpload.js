@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 const FileUpload = ({ handleShowUploadFileOption, handleModal, getAllAssessments }) => {
   const [fileDetails, setFileDetails] = useState({
     featureName: "",
